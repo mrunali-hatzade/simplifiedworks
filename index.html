@@ -438,7 +438,7 @@
           <div style="background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid var(--card-border); margin-top: 40px;">
             <h3>Provide Feedback</h3>
             <p style="margin-bottom: 20px; font-size: 0.95rem;">Already working with us? We'd love to hear about your experience.</p>
-            <form action="#" method="POST">
+            <form onsubmit="event.preventDefault(); alert('Thank you for your feedback! This feature is coming soon.');">
               <div class="field">
                 <label>Your Name</label>
                 <input type="text" placeholder="John Doe" required>
@@ -451,7 +451,7 @@
             </form>
           </div>
         </div>
-        <form action="#" method="POST" class="contact-form reveal from-right" style="background: var(--bg); padding: 40px; border-radius: 16px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+        <form id="contactForm" action="#" method="POST" class="contact-form reveal from-right" style="background: var(--bg); padding: 40px; border-radius: 16px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
           <h3 style="margin-bottom: 24px; font-size: 1.8rem;">Contact Us</h3>
           <div class="field">
             <label for="name">Name</label>
@@ -543,7 +543,7 @@
           <div>
             <h4 style="color: var(--gold); margin-bottom: 20px; font-size: 1.2rem;">Newsletter</h4>
             <p style="color: var(--text-muted); margin-bottom: 15px; font-size: 0.95rem;">Subscribe to get the latest digital growth strategies.</p>
-            <form style="display: flex; gap: 10px;">
+            <form class="newsletter-form" style="display: flex; gap: 10px;">
               <input name="email" type="email" placeholder="Your email address" required style="flex: 1; padding: 10px 15px; border-radius: 6px; border: 1px solid var(--card-border); background: var(--bg); color: var(--text-primary);">
               <button type="submit" class="btn btn-primary" style="padding: 10px 20px; flex-shrink: 0; border-radius: 6px;">Subscribe</button>
             </form>

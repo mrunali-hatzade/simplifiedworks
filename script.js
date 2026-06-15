@@ -440,14 +440,30 @@ document.addEventListener('DOMContentLoaded', function () {
         const note = form.querySelector('.form-note');
         if (note) {
           if (response.ok) {
-            note.innerHTML = ' <strong>Success!</strong> Your inquiry has been sent successfully. We will contact you shortly.';
-            note.style.color = 'var(--teal)';
-            form.reset();
-          } else {
+          // Success!
+          form.innerHTML = `
+            <div style="text-align: center; padding: 40px 20px;">
+              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" style="margin-bottom: 20px;">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <h3>Message Sent Successfully!</h3>
+              <p>Redirecting to WhatsApp to chat with us...</p>
+            </div>
+          `;
+          
+          // Formatted WhatsApp message
+          const waMessage = `Hello Simplified Works! I'm ${data.name}.\nI'm interested in ${data.service || 'your services'}.\nMy email is ${data.email}.\nMessage: ${data.message}`;
+          
+          setTimeout(() => {
+            window.open(`https://wa.me/919767355347?text=${encodeURIComponent(waMessage)}`, '_blank');
+          }, 1500);
+
+        } else {
             note.innerHTML = ' <strong>Error!</strong> ' + (result.error || 'Something went wrong.');
             note.style.color = 'red';
+            note.style.animation = 'fadeIn 0.5s';
           }
-          note.style.animation = 'fadeIn 0.5s';
         }
       } catch (error) {
         const note = form.querySelector('.form-note');
@@ -486,10 +502,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         if (response.ok) {
-          submitBtn.textContent = 'Subscribed!';
+          submitBtn.textContent = 'Redirecting to WhatsApp...';
           submitBtn.style.backgroundColor = 'var(--teal)';
           submitBtn.style.borderColor = 'var(--teal)';
           nForm.reset();
+          
+          const waMessage = `Hello, I just subscribed to the Newsletter with ${data.email}!`;
+          setTimeout(() => {
+            window.open(`https://wa.me/919767355347?text=${encodeURIComponent(waMessage)}`, '_blank');
+          }, 1500);
         } else {
           submitBtn.textContent = 'Error';
           submitBtn.style.backgroundColor = 'red';
@@ -591,7 +612,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-  const toggle = document.getElementById('chatbot-toggle');
+  const toggle = document.querySelector('.chatbot-toggle');
   const win = document.getElementById('chatbot-window');
   const closeBtn = document.getElementById('chatbot-close');
   const form = document.getElementById('chatbot-form');
@@ -599,7 +620,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const body = document.getElementById('chatbot-body');
 
   if(toggle && win) {
-    toggle.addEventListener('click', () => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
       win.classList.toggle('active');
       if(win.classList.contains('active')) input.focus();
     });

@@ -1,3 +1,4 @@
+const { Resend } = require('resend');
 const { Pool } = require('pg');
 
 const pool = new Pool({
@@ -6,6 +7,8 @@ const pool = new Pool({
     rejectUnauthorized: false
   }
 });
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -19,7 +22,7 @@ export default async function handler(req, res) {
     await pool.query(`CREATE TABLE IF NOT EXISTS Subscribers (
       id SERIAL PRIMARY KEY,
       Email varchar(255) UNIQUE,
-      CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      SubscribedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )`);
 
     const result = await pool.query(
@@ -28,6 +31,16 @@ export default async function handler(req, res) {
        ON CONFLICT (Email) DO NOTHING`,
       [email]
     );
+
+    // Send Email using Resend
+    if (process.env.RESEND_API_KEY) {
+      await resend.emails.send({
+        from: 'Acme <onboarding@resend.dev>',
+        to: ['simplifiedworks.official@gmail.com'],
+        subject: `New Newsletter Subscriber!`,
+        html: `<p>Awesome! You have a new subscriber: <strong>${email}</strong></p>`
+      });
+    }
 
     return res.status(200).json({ success: true, result });
   } catch (error) {
