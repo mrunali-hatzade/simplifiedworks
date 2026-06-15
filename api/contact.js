@@ -1,4 +1,11 @@
-import { sql } from '@vercel/postgres';
+const { Pool } = require('pg');
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL || process.env.POSTGRES_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -9,7 +16,7 @@ export default async function handler(req, res) {
     const { name, email, phone, service, budget, message } = req.body;
     
     // Create table if it doesn't exist
-    await sql`CREATE TABLE IF NOT EXISTS Contacts (
+    await pool.query(`CREATE TABLE IF NOT EXISTS Contacts (
       id SERIAL PRIMARY KEY,
       Name varchar(255),
       Email varchar(255),
@@ -18,12 +25,13 @@ export default async function handler(req, res) {
       Budget varchar(100),
       Message text,
       CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    );`;
+    )`);
 
-    const result = await sql`
-      INSERT INTO Contacts (Name, Email, Phone, Service, Budget, Message)
-      VALUES (${name}, ${email}, ${phone}, ${service}, ${budget}, ${message})
-    `;
+    const result = await pool.query(
+      `INSERT INTO Contacts (Name, Email, Phone, Service, Budget, Message)
+       VALUES ($1, $2, $3, $4, $5, $6)`,
+      [name, email, phone, service, budget, message]
+    );
 
     return res.status(200).json({ success: true, result });
   } catch (error) {
