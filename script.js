@@ -656,61 +656,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-  const toggle = document.querySelector('.chatbot-toggle');
-  const win = document.getElementById('chatbot-window');
-  const closeBtn = document.getElementById('chatbot-close');
-  const form = document.getElementById('chatbot-form');
-  const input = document.getElementById('chatbot-input');
-  const body = document.getElementById('chatbot-body');
 
-  if(toggle && win) {
-    toggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      win.classList.toggle('active');
-      if(win.classList.contains('active')) input.focus();
-    });
-
-    closeBtn.addEventListener('click', () => {
-      win.classList.remove('active');
-    });
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const val = input.value.trim();
-      if(!val) return;
-
-      // Add user message
-      const userMsg = document.createElement('div');
-      userMsg.className = 'chat-msg user';
-      userMsg.textContent = val;
-      body.appendChild(userMsg);
-      input.value = '';
-      body.scrollTop = body.scrollHeight;
-
-      // Simulate bot thinking
-      setTimeout(() => {
-        const botMsg = document.createElement('div');
-        botMsg.className = 'chat-msg bot';
-        
-        const txt = val.toLowerCase();
-        if(txt.includes('price') || txt.includes('cost')) {
-          botMsg.innerHTML = 'Our pricing is transparent and completely tailored to your industry! Please check our <a href="pricing.html" style="color:var(--teal);text-decoration:underline;">Pricing page</a> for details.';
-        } else if(txt.includes('contact') || txt.includes('hello') || txt.includes('hi ')) {
-          botMsg.textContent = 'Hello! You can reach us via the Contact page or by clicking the WhatsApp icon.';
-        } else if(txt.includes('service') || txt.includes('build')) {
-          botMsg.textContent = 'We engineer premium websites, management dashboards, and digital branding. Navigate to our Services section to learn more.';
-        } else {
-          botMsg.textContent = 'I am the frontend AI Assistant! Since our backend is still under construction, please use the Contact form or WhatsApp to talk to our human team for detailed inquiries.';
-        }
-
-        body.appendChild(botMsg);
-        body.scrollTop = body.scrollHeight;
-      }, 600);
-    });
-  }
-});
-});
 
 // --- Advanced Content Animations ---
 (function initContentAnimations() {

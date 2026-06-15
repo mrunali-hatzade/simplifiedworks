@@ -280,26 +280,28 @@
 
   
 
+
+
   <!-- Chatbot Widget -->
   <div class="chatbot-widget">
     <div class="chatbot-window" id="chatbot-window">
       <div class="chatbot-header">
-        <div>AI Assistant</div>
+        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> AI Assistant</span>
         <button class="chatbot-close" id="chatbot-close" onclick="document.getElementById('chatbot-window').classList.remove('active');">&times;</button>
       </div>
       <div class="chatbot-body" id="chatbot-body">
-        <div class="chat-msg bot">Hi! I'm the Simplified Works AI Assistant. How can I help you grow your business today?</div>
+        <div class="chat-msg bot">Hi there! I am the Simplified Works AI. How can I help you today?</div>
       </div>
       <form class="chatbot-footer" id="chatbot-form">
-        <input type="text" class="chatbot-input" id="chatbot-input" placeholder="Type a message..." required>
+        <input type="text" class="chatbot-input" id="chatbot-input" placeholder="Type a message..." autocomplete="off">
         <button type="submit" class="chatbot-send">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
         </button>
       </form>
     </div>
-    <div class="chatbot-toggle" id="chatbot-toggle" onclick="document.getElementById('chatbot-window').classList.toggle('active'); setTimeout(() => document.getElementById('chatbot-input').focus(), 100);" style="cursor: pointer;">
+    <button class="chatbot-toggle" id="chatbot-toggle" onclick="document.getElementById('chatbot-window').classList.toggle('active'); setTimeout(() => document.getElementById('chatbot-input').focus(), 100);">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-    </div>
+    </button>
   </div>
 
 </body>
