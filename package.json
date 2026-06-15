@@ -1,0 +1,16 @@
+{
+  "name": "static_backup",
+  "version": "1.0.0",
+  "description": "A corporate, multi-page website for **Simplified Works**, a digital solutions agency specializing in website development, digital branding, and custom web solutions for businesses, schools, startups, salons, restaurants, and clinics.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@vercel/postgres": "^0.10.0"
+  }
+}

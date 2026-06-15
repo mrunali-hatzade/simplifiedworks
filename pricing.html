@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simplified Works - Websites, Branding & Custom Web Solutions</title>
+<meta name="description" content="Simplified Works is a digital solutions agency specializing in website development, digital branding, and custom web solutions for businesses, schools, startups, salons, restaurants and clinics.">
+<link rel="icon" href="assets/logo.png">
+
+<!-- Google Search Console / Open Graph SEO Metadata -->
+<meta property="og:title" content="Simplified Works - Websites, Branding & Custom Web Solutions">
+<meta property="og:description" content="We build high-performance websites, custom web applications, and premium branding solutions tailored for businesses, schools, and startups.">
+<meta property="og:image" content="assets/hero.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Simplified Works Ã¢â‚¬â€ Digital Solutions Agency">
+<meta name="twitter:description" content="Premium web development and custom portals engineered around your workflow.">
+<meta name="twitter:image" content="assets/hero.png">
+
+<!-- CSS Stylesheets -->
+<link rel="stylesheet" href="styles.css">
+
+<!-- Prevent Theme Flash -->
+<script>
+  (function() {
+    const activeTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', activeTheme);
+  })();
+</script>
+
+<meta name="description" content="View transparent pricing across 20 business categories. Choose from Basic, Standard, and Premium web solutions tailored to your needs.">
+
+<style>
+  .pricing-hero { padding: 120px 0 60px; text-align: center; }
+  .category-selector { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 40px auto; max-width: 1000px; }
+  .category-pill { padding: 10px 20px; border-radius: 30px; border: 1px solid var(--card-border); background: var(--bg); color: var(--text-primary); cursor: pointer; font-weight: 500; font-family: var(--font-body); transition: all 0.3s; }
+  .category-pill:hover, .category-pill.active { background: var(--gold); color: #000; border-color: var(--gold); }
+  
+  .pricing-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+  .price-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 40px 30px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+  .price-card.popular { border-color: var(--gold); position: relative; }
+  .price-card.popular::before { content: "Most Popular"; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; padding: 4px 16px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; }
+  .price-tier { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 15px; }
+  .price-amount { font-size: 2.5rem; font-weight: 800; color: var(--gold); margin-bottom: 25px; line-height: 1.1; }
+  
+  .feature-table-wrapper { overflow-x: auto; margin-top: 80px; margin-bottom: 80px; }
+  .feature-table { width: 100%; min-width: 800px; border-collapse: collapse; background: var(--card-bg); border-radius: 12px; overflow: hidden; }
+  .feature-table th, .feature-table td { padding: 20px; text-align: center; border-bottom: 1px solid var(--card-border); color: var(--text-primary); }
+  .feature-table th:first-child, .feature-table td:first-child { text-align: left; font-weight: 600; width: 40%; }
+  .feature-table th { background: var(--bg); font-weight: 800; font-size: 1.2rem; }
+  .icon-check { color: var(--gold); font-weight: bold; font-size: 1.2rem; }
+  .icon-cross { color: #888; font-size: 1rem; }
+  
+  .maintenance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+  .m-card { background: var(--bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 30px; }
+  .m-card ul { list-style: none; padding: 0; margin-top: 20px; }
+  .m-card ul li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; color: var(--text-primary); }
+  .m-card ul li::before { content: "✓"; color: var(--gold); font-weight: bold; }
+
+    .premium-bg { 
+      background: #000000 !important; 
+      color: #ffffff !important; 
+      border: 1px solid rgba(255, 215, 0, 0.4) !important;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.6), 0 0 30px rgba(255, 215, 0, 0.1) !important;
+      transform: scale(1.02);
+      position: relative;
+      z-index: 2;
+    }
+    .premium-bg h3, .premium-bg .price-tier { color: #ffffff !important; }
+    .premium-bg p, .premium-bg li { color: #f8fafc !important; }
+    .premium-bg .price-amount { color: var(--gold) !important; }
+    .premium-bg .btn-ghost { border-color: var(--gold) !important; color: var(--gold) !important; font-weight: bold; }
+    .premium-bg .btn-ghost:hover { background: var(--gold) !important; color: #000000 !important; box-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
+
+  </style>
+
+</head>
+<body class="dark-mode">
+
+  <header class="site">
+  <div class="container nav">
+    <a class="brand" href="index.html#hero">
+      <img src="assets/logo.png" alt="Simplified Works logo" style="height: 48px; width: auto;">
+      <span>Simplified Works<small>Digital Solutions</small></span>
+    </a>
+        <nav aria-label="Main Navigation">
+      <ul class="menu">
+        <li><a href="index.html#hero" class="active">Home</a></li>
+        <li class="dropdown">
+          <a href="index.html#services">Services ▾</a>
+          <div class="dropdown-menu">
+            <a href="service-websites.html">Website Development</a>
+            <a href="service-branding.html">Digital Branding</a>
+            <a href="service-custom-web.html">Custom Web Solutions</a>
+            <a href="service-hosting.html">Fully Managed Hosting</a>
+            <a href="service-seo.html">Search Engine Optimization (SEO)</a>
+            <a href="service-domain.html">Domain & Hosting Setup</a>
+            <a href="service-speed.html">Website Speed Optimization</a>
+            <a href="service-social.html">WhatsApp & Social Media</a>
+            <a href="service-security.html">Website Security</a>
+          </div>
+        </li>
+        <li><a href="index.html#portfolio">Projects</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <!-- Theme Switcher -->
+      <button class="theme-toggle" aria-label="Toggle dark/light mode">
+        <!-- Sun Icon -->
+        <svg class="icon-sun" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon Icon -->
+        <svg class="icon-moon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+      
+      <a href="#contact" class="btn btn-primary nav-cta">Get Free Quote</a>
+      
+      <button class="burger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+  <main>
+    <section class="pricing-hero">
+      <div class="container">
+        <span class="eyebrow">Transparent Pricing</span>
+        <h1 style="font-size: 3.5rem; margin-bottom: 20px;">Select Your Business Category</h1>
+        <p class="lead center-block text-center" style="margin-bottom: 30px;">We've tailored our pricing models to fit the unique needs of different industries. Select your category below to see your customized plans.</p>
+        
+        <div class="category-selector" id="category-selector">
+          <button class="category-pill" data-cat="Salon / Spa">Salon / Spa</button>
+<button class="category-pill" data-cat="Gym / Fitness Studio">Gym / Fitness Studio</button>
+<button class="category-pill" data-cat="Cafe / Restaurant">Cafe / Restaurant</button>
+<button class="category-pill" data-cat="Bakery">Bakery</button>
+<button class="category-pill" data-cat="Clinic">Clinic</button>
+<button class="category-pill" data-cat="Hospital">Hospital</button>
+<button class="category-pill" data-cat="Wedding Hall / Banquet">Wedding Hall / Banquet</button>
+<button class="category-pill" data-cat="Real Estate">Real Estate</button>
+<button class="category-pill" data-cat="Coaching Classes">Coaching Classes</button>
+<button class="category-pill" data-cat="School / College">School / College</button>
+<button class="category-pill" data-cat="Travel Agency">Travel Agency</button>
+<button class="category-pill" data-cat="Hotel / Resort">Hotel / Resort</button>
+<button class="category-pill" data-cat="Car Rental">Car Rental</button>
+<button class="category-pill" data-cat="Law Firm">Law Firm</button>
+<button class="category-pill" data-cat="Interior Designer">Interior Designer</button>
+<button class="category-pill" data-cat="Startup Landing Page">Startup Landing Page</button>
+<button class="category-pill" data-cat="E-commerce Website">E-commerce Website</button>
+<button class="category-pill" data-cat="NGO / Trust">NGO / Trust</button>
+<button class="category-pill" data-cat="Personal Portfolio">Personal Portfolio</button>
+<button class="category-pill" data-cat="Event Management">Event Management</button>
+
+        </div>
+
+        <div class="pricing-cards" id="pricing-cards" style="display:none;">
+          <div class="price-card reveal">
+            <div class="price-tier">Basic</div>
+            <div class="price-amount" id="price-basic">--</div>
+            <p style="color: var(--text-muted); margin-bottom: 30px;">Perfect for establishing your digital footprint.</p>
+            <a href="index.html#contact" class="btn btn-ghost" style="width: 100%;">Get Started</a>
+          </div>
+          <div class="price-card popular reveal" style="transition-delay: 0.15s">
+            <div class="price-tier">Standard</div>
+            <div class="price-amount" id="price-standard">--</div>
+            <p style="color: var(--text-muted); margin-bottom: 30px;">Ideal for growing businesses needing more features.</p>
+            <a href="index.html#contact" class="btn btn-primary" style="width: 100%;">Get Started</a>
+          </div>
+          <div class="price-card reveal">
+            <div class="price-tier">Premium</div>
+            <div class="price-amount" id="price-premium">--</div>
+            <p style="color: var(--text-muted); margin-bottom: 30px;">Comprehensive solutions for ultimate digital dominance.</p>
+            <a href="index.html#contact" class="btn btn-ghost" style="width: 100%;">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Table -->
+    <section class="bg-soft" style="padding: 60px 0;">
+      <div class="container">
+        <h2 class="text-center" style="margin-bottom: 20px;">Feature Comparison</h2>
+        <p class="text-center lead">See exactly what you get with each tier.</p>
+        
+        <div class="feature-table-wrapper">
+          <table class="feature-table">
+            <thead>
+              <tr>
+                <th>Core Features</th>
+                <th>Basic</th>
+                <th>Standard</th>
+                <th>Premium</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Dynamic Website Pages</td>
+                <td>Up to 3 Pages</td>
+                <td>Up to 10 Pages</td>
+                <td>Unlimited</td>
+              </tr>
+              <tr>
+                <td>Mobile & Tablet Responsive</td>
+                <td><span class="icon-check">✓</span></td>
+                <td><span class="icon-check">✓</span></td>
+                <td><span class="icon-check">✓</span></td>
+              </tr>
+              <tr>
+                <td>Website Security (SSL)</td>
+                <td><span class="icon-check">✓</span></td>
+                <td><span class="icon-check">✓</span></td>
+                <td><span class="icon-check">✓</span></td>
+              </tr>
+              <tr>
+                <td>Custom Domain Name</td>
+                <td><span class="icon-cross">✕</span></td>
+                <td><span class="icon-check">✓</span> (1 Year Free)</td>
+                <td><span class="icon-check">✓</span> (1 Year Free)</td>
+              </tr>
+              <tr>
+                <td>WhatsApp Chat Widget</td>
+                <td><span class="icon-check">✓</span></td>
+                <td><span class="icon-check">✓</span></td>
+                <td><span class="icon-check">✓</span></td>
+              </tr>
+              <tr>
+                <td>SEO Setup & Optimization</td>
+                <td>Basic setup</td>
+                <td>Advanced Setup</td>
+                <td>Comprehensive SEO</td>
+              </tr>
+              <tr>
+                <td>E-Commerce & Product Catalog</td>
+                <td><span class="icon-cross">✕</span></td>
+                <td><span class="icon-check">✓</span> (Up to 50 Products)</td>
+                <td><span class="icon-check">✓</span> (Unlimited Products)</td>
+              </tr>
+              <tr>
+                <td>Online Payment Gateway</td>
+                <td><span class="icon-cross">✕</span></td>
+                <td><span class="icon-check">✓</span></td>
+                <td><span class="icon-check">✓</span></td>
+              </tr>
+              <tr>
+                <td>Dedicated Account Manager</td>
+                <td><span class="icon-cross">✕</span></td>
+                <td><span class="icon-cross">✕</span></td>
+                <td><span class="icon-check">✓</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Maintenance Plans -->
+    <section style="padding: 80px 0;">
+      <div class="container">
+        <h2 class="text-center">Monthly Maintenance Plans</h2>
+        <p class="text-center center-block lead">Keep your website secure, updated, and running smoothly.</p>
+        
+        <div class="maintenance-grid">
+          <div class="m-card">
+            <h3>Starter</h3>
+            <div class="price-amount" style="font-size: 2rem; margin-top: 10px;">₹999<span style="font-size:1rem; color:#888;">/month</span></div>
+            <ul>
+              <li>Content updates</li>
+              <li>Contact info updates</li>
+              <li>Monthly backup</li>
+              <li>Basic support</li>
+            </ul>
+          </div>
+          <div class="m-card" style="border-color: var(--gold);">
+            <h3>Business</h3>
+            <div class="price-amount" style="font-size: 2rem; margin-top: 10px;">₹2,499<span style="font-size:1rem; color:#888;">/month</span></div>
+            <ul>
+              <li>Unlimited content updates</li>
+              <li>Security updates</li>
+              <li>SEO checkup</li>
+              <li>Gallery updates</li>
+              <li>Priority support</li>
+            </ul>
+          </div>
+          <div class="m-card">
+            <h3>Premium</h3>
+            <div class="price-amount" style="font-size: 2rem; margin-top: 10px;">₹4,999<span style="font-size:1rem; color:#888;">/month</span></div>
+            <ul>
+              <li>Weekly backups</li>
+              <li>Performance optimization</li>
+              <li>Website monitoring</li>
+              <li>SEO reports</li>
+              <li>Emergency support</li>
+              <li>Technical issue resolution</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+      <footer style="background: var(--card-bg); padding: 80px 0 40px; border-top: 1px solid var(--card-border);">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 60px;">
+          <div>
+            <a href="index.html" style="display: inline-block; margin-bottom: 20px;">
+              <img src="assets/logo.png" alt="Simplified Works" style="height: 48px;">
+            </a>
+            <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;">Empowering small businesses with premium web development, branding, and digital growth strategies.</p>
+            <div style="display: flex; gap: 15px;">
+              <a href="#" style="color: var(--text-primary);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+              <a href="#" style="color: var(--text-primary);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+              <a href="#" style="color: var(--text-primary);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            </div>
+          </div>
+          <div>
+            <h4 style="color: var(--gold); margin-bottom: 20px; font-size: 1.2rem;">Quick Links</h4>
+            <ul style="list-style: none; padding: 0;">
+              <li style="margin-bottom: 12px;"><a href="index.html#hero" style="color: var(--text-muted); text-decoration: none;">Home</a></li>
+              <li style="margin-bottom: 12px;"><a href="index.html#about" style="color: var(--text-muted); text-decoration: none;">About Us</a></li>
+              <li style="margin-bottom: 12px;"><a href="index.html#portfolio" style="color: var(--text-muted); text-decoration: none;">Portfolio</a></li>
+              <li style="margin-bottom: 12px;"><a href="pricing.html" style="color: var(--text-muted); text-decoration: none;">Pricing</a></li>
+              <li style="margin-bottom: 12px;"><a href="faqs.html" style="color: var(--text-muted); text-decoration: none;">FAQs</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color: var(--gold); margin-bottom: 20px; font-size: 1.2rem;">Services</h4>
+            <ul style="list-style: none; padding: 0;">
+              <li style="margin-bottom: 12px;"><a href="service-websites.html" style="color: var(--text-muted); text-decoration: none;">Website Development</a></li>
+              <li style="margin-bottom: 12px;"><a href="service-branding.html" style="color: var(--text-muted); text-decoration: none;">Digital Branding</a></li>
+              <li style="margin-bottom: 12px;"><a href="service-seo.html" style="color: var(--text-muted); text-decoration: none;">SEO & Marketing</a></li>
+              <li style="margin-bottom: 12px;"><a href="service-hosting.html" style="color: var(--text-muted); text-decoration: none;">Managed Hosting</a></li>
+              <li style="margin-bottom: 12px;"><a href="service-security.html" style="color: var(--text-muted); text-decoration: none;">Website Security</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color: var(--gold); margin-bottom: 20px; font-size: 1.2rem;">Newsletter</h4>
+            <p style="color: var(--text-muted); margin-bottom: 15px; font-size: 0.95rem;">Subscribe to get the latest digital growth strategies.</p>
+            <form class="newsletter-form" style="display: flex; gap: 10px; width: 100%; max-width: 400px; flex-wrap: wrap;">
+              <input name="email" type="email" placeholder="Your email address" required style="flex: 1; padding: 10px 15px; border-radius: 6px; border: 1px solid var(--card-border); background: var(--bg); color: var(--text-primary);">
+              <button type="submit" class="btn btn-primary" style="padding: 10px 20px; flex-shrink: 0; border-radius: 6px;">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div style="border-top: 1px solid var(--card-border); padding-top: 30px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+          <p style="color: var(--text-muted); margin: 0;">&copy; 2026 Simplified Works. All rights reserved. Made in India. Created by Mrunali Hatzade.</p>
+          <div style="display: flex; gap: 20px;">
+            <a href="#" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">Privacy Policy</a>
+            <a href="#" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <script>
+    const pricingData = {"Salon / Spa":{"basic":"₹4,999 - ₹6,999","standard":"₹8,000 - ₹15,000","premium":"₹15,000 - ₹30,000+"},"Gym / Fitness Studio":{"basic":"₹5,999 - ₹7,999","standard":"₹10,000 - ₹20,000","premium":"₹20,000 - ₹40,000+"},"Cafe / Restaurant":{"basic":"₹5,999 - ₹8,999","standard":"₹10,000 - ₹20,000","premium":"₹20,000 - ₹35,000+"},"Bakery":{"basic":"₹4,999 - ₹6,999","standard":"₹8,000 - ₹15,000","premium":"₹15,000 - ₹25,000+"},"Clinic":{"basic":"₹7,999 - ₹11,999","standard":"₹12,000 - ₹25,000","premium":"₹25,000 - ₹50,000+"},"Hospital":{"basic":"₹14,999 - ₹19,999","standard":"₹30,000 - ₹50,000","premium":"₹60,000 - ₹1,50,000+"},"Wedding Hall / Banquet":{"basic":"₹7,999 - ₹11,999","standard":"₹12,000 - ₹25,000","premium":"₹25,000 - ₹50,000+"},"Real Estate":{"basic":"₹7,999 - ₹14,999","standard":"₹15,000 - ₹35,000","premium":"₹35,000 - ₹80,000+"},"Coaching Classes":{"basic":"₹4,999 - ₹9,999","standard":"₹10,000 - ₹20,000","premium":"₹20,000 - ₹40,000+"},"School / College":{"basic":"₹10,000 - ₹25,000","standard":"₹25,000 - ₹60,000","premium":"₹60,000 - ₹2,00,000+"},"Travel Agency":{"basic":"₹7,999 - ₹14,999","standard":"₹15,000 - ₹35,000","premium":"₹35,000 - ₹75,000+"},"Hotel / Resort":{"basic":"₹10,000 - ₹25,000","standard":"₹25,000 - ₹60,000","premium":"₹60,000 - ₹1,50,000+"},"Car Rental":{"basic":"₹5,999 - ₹11,999","standard":"₹12,000 - ₹25,000","premium":"₹25,000 - ₹50,000+"},"Law Firm":{"basic":"₹7,999 - ₹14,999","standard":"₹15,000 - ₹35,000","premium":"₹35,000 - ₹75,000+"},"Interior Designer":{"basic":"₹6,999 - ₹14,999","standard":"₹15,000 - ₹30,000","premium":"₹30,000 - ₹60,000+"},"Startup Landing Page":{"basic":"₹4,999 - ₹9,999","standard":"₹10,000 - ₹25,000","premium":"₹25,000 - ₹60,000+"},"E-commerce Website":{"basic":"₹15,000 - ₹25,000","standard":"₹25,000 - ₹60,000","premium":"₹60,000 - ₹2,00,000+"},"NGO / Trust":{"basic":"₹4,999 - ₹9,999","standard":"₹10,000 - ₹20,000","premium":"₹20,000 - ₹40,000+"},"Personal Portfolio":{"basic":"₹3,999 - ₹7,999","standard":"₹8,000 - ₹15,000","premium":"₹15,000 - ₹30,000+"},"Event Management":{"basic":"₹5,999 - ₹11,999","standard":"₹12,000 - ₹25,000","premium":"₹25,000 - ₹50,000+"}};
+    
+    const pills = document.querySelectorAll('.category-pill');
+    const pricingCards = document.getElementById('pricing-cards');
+    const priceBasic = document.getElementById('price-basic');
+    const priceStandard = document.getElementById('price-standard');
+    const pricePremium = document.getElementById('price-premium');
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        // Reset active
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        
+        // Update Prices
+        const cat = pill.getAttribute('data-cat');
+        const data = pricingData[cat];
+        
+        priceBasic.textContent = data.basic;
+        priceStandard.textContent = data.standard;
+        pricePremium.textContent = data.premium;
+        
+        pricingCards.style.display = 'grid';
+        pricingCards.style.opacity = 0;
+        setTimeout(() => pricingCards.style.opacity = 1, 50);
+      });
+    });
+
+    // Select first by default
+    if(pills.length > 0) {
+      pills[0].click();
+    }
+  </script>
+
+  
+
+  <!-- Chatbot Widget -->
+  <div class="chatbot-widget">
+    <div class="chatbot-window" id="chatbot-window">
+      <div class="chatbot-header">
+        <div>AI Assistant</div>
+        <button class="chatbot-close" id="chatbot-close">&times;</button>
+      </div>
+      <div class="chatbot-body" id="chatbot-body">
+        <div class="chat-msg bot">Hi! I'm the Simplified Works AI Assistant. How can I help you grow your business today?</div>
+      </div>
+      <form class="chatbot-footer" id="chatbot-form">
+        <input type="text" class="chatbot-input" id="chatbot-input" placeholder="Type a message..." required>
+        <button type="submit" class="chatbot-send">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </form>
+    </div>
+    <div class="chatbot-toggle" id="chatbot-toggle">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    </div>
+  </div>
+
+</body>
+</html>

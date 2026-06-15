@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simplified Works - Websites, Branding & Custom Web Solutions</title>
+<meta name="description" content="Simplified Works is a digital solutions agency specializing in website development, digital branding, and custom web solutions for businesses, schools, startups, salons, restaurants and clinics.">
+<link rel="icon" href="assets/logo.png">
+
+<!-- Google Search Console / Open Graph SEO Metadata -->
+<meta property="og:title" content="Simplified Works - Websites, Branding & Custom Web Solutions">
+<meta property="og:description" content="We build high-performance websites, custom web applications, and premium branding solutions tailored for businesses, schools, and startups.">
+<meta property="og:image" content="assets/hero.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Simplified Works Ã¢â‚¬â€ Digital Solutions Agency">
+<meta name="twitter:description" content="Premium web development and custom portals engineered around your workflow.">
+<meta name="twitter:image" content="assets/hero.png">
+
+<!-- CSS Stylesheets -->
+<link rel="stylesheet" href="styles.css">
+
+<!-- Prevent Theme Flash -->
+<script>
+  (function() {
+    const activeTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', activeTheme);
+  })();
+</script>
+</head>
+<body>
+<canvas id="global-3d-bg"></canvas>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="site">
+  <div class="container nav">
+    <a class="brand" href="index.html#hero">
+      <img src="assets/logo.png" alt="Simplified Works logo" style="height: 48px; width: auto;">
+      <span>Simplified Works<small>Digital Solutions</small></span>
+    </a>
+        <nav aria-label="Main Navigation">
+      <ul class="menu">
+        <li><a href="index.html#hero" class="active">Home</a></li>
+        <li class="dropdown">
+          <a href="index.html#services">Services ▾</a>
+          <div class="dropdown-menu">
+            <a href="service-websites.html">Website Development</a>
+            <a href="service-branding.html">Digital Branding</a>
+            <a href="service-custom-web.html">Custom Web Solutions</a>
+            <a href="service-hosting.html">Fully Managed Hosting</a>
+            <a href="service-seo.html">Search Engine Optimization (SEO)</a>
+            <a href="service-domain.html">Domain & Hosting Setup</a>
+            <a href="service-speed.html">Website Speed Optimization</a>
+            <a href="service-social.html">WhatsApp & Social Media</a>
+            <a href="service-security.html">Website Security</a>
+          </div>
+        </li>
+        <li><a href="index.html#portfolio">Projects</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <!-- Theme Switcher -->
+      <button class="theme-toggle" aria-label="Toggle dark/light mode">
+        <!-- Sun Icon -->
+        <svg class="icon-sun" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon Icon -->
+        <svg class="icon-moon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+      
+      <a href="#contact" class="btn btn-primary nav-cta">Get Free Quote</a>
+      
+      <button class="burger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- PORTAL OVERLAY (Layer 3 & 2) -->
+  <div id="portal-overlay" class="portal-overlay">
+    <div id="portal-intro-ui" class="portal-intro-ui">
+      <div class="mouse-icon"></div>
+      <div class="micro-label">Scroll to unveil</div>
+    </div>
+    
+    <div class="portal-progress-container">
+      <div id="portal-progress-bar" class="portal-progress-bar"></div>
+    </div>
+    
+    <svg id="portal-curtain" class="portal-curtain" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+      <rect width="100%" height="100%" fill="#ffffff" />
+      <g id="zoom-target" transform-origin="50% 50%">
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#000000" class="portal-logo-text">
+            <tspan x="50%" dy="-0.6em">Wellcome to the World of</tspan>
+            <tspan x="50%" dy="1.2em">Simplified Works !!</tspan>
+          </text>
+      </g>
+    </svg>
+  </div>
+  
+  <div id="main-content-wrapper" class="main-content-locked">
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="container" id="hero-content" style="opacity: 0; transition: opacity 1s ease;">
+        <div class="hero-content-inner">
+          <span class="eyebrow hero-reveal">Engineered for Growth</span>
+          <h1 class="hero-reveal">Professional Websites That Help Your <b>Business Grow</b></h1>
+          <p class="hero-reveal">We design and develop modern websites that attract customers, build trust, and increase sales.</p>
+          <div class="actions hero-reveal">
+            <a href="#contact" class="btn btn-primary">Get Free Quote</a>
+            <a href="#portfolio" class="btn btn-outline">View Projects</a>
+          </div>
+          
+          <div class="trust-bar hero-reveal">
+            <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> Fast Delivery</div>
+            <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><path d="M12 18h.01"/></svg> Mobile Responsive</div>
+            <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg> SEO Friendly</div>
+            <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12M6 8h12M6 13h8.5l-5 8M11 13a4 4 0 0 0 0-8"/></svg> Affordable Pricing</div>
+            <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg> Ongoing Support</div>
+            <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Secure Hosting</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave Divider -->
+    <svg class="wave-divider" viewBox="0 0 1440 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0H1440V74C1320 28.5 1102 3 874 3C646 3 538 48.5 284 48.5C136 48.5 48 31 0 17V0Z" fill="currentColor"/>
+    </svg>
+
+    <!-- SERVICES -->
+        <section id="services" class="bg-soft">
+      <div class="container">
+        <div class="sec-head reveal">
+          <span class="eyebrow">What We Do</span>
+          <h2>Our&nbsp;Core&nbsp;Services</h2>
+          <p>Everything you need to build, brand, and grow a strong digital presence — under one roof.</p>
+        </div>
+        <div class="grid grid-3 reveal-group reveal" style="gap: 30px;">
+          <!-- 1. Website Development -->
+          <a href="service-websites.html" class="card" style="text-decoration:none; color:inherit; display:block;">
+            <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+            <h3>Website Development</h3>
+            <p>We design and develop fast, secure, and mobile-friendly websites that represent your brand and drive results.</p>
+          </a>
+          <!-- 2. Digital Branding -->
+          <a href="service-branding.html" class="card" style="text-decoration:none; color:inherit; display:block;">
+            <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+            <h3>Digital Branding</h3>
+            <p>Stand out with a cohesive visual identity from your logo to your social presence and marketing graphics.</p>
+          </a>
+          <!-- 3. Custom Web Solutions -->
+          <a href="service-custom-web.html" class="card" style="text-decoration:none; color:inherit; display:block;">
+            <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+            <h3>Custom Web Solutions</h3>
+            <p>When off-the-shelf isn't enough, we build custom web applications and portals that fit your exact workflow.</p>
+          </a>
+          <!-- 4. Managed Hosting -->
+          <a href="service-hosting.html" class="card" style="text-decoration:none; color:inherit; display:block;">
+            <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div>
+            <h3>Fully Managed Hosting</h3>
+            <p>Fast, secure, and reliable hosting with daily backups and dedicated support, so you can focus on your business.</p>
+          </a>
+          <!-- 5. Search Engine Optimization (SEO) -->
+          <a href="service-seo.html" class="card" style="text-decoration:none; color:inherit; display:block;">
+            <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div>
+            <h3>Search Engine Optimization</h3>
+            <p>Rank higher on Google and attract more organic traffic to your business with our proven SEO strategies.</p>
+          </a>
+          <!-- 6. Domain & Hosting Setup -->
+          <a href="service-domain.html" class="card" style="text-decoration:none; color:inherit; display:block;">
+            <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20"/></svg></div>
+            <h3>Domain & Hosting Setup</h3>
+            <p>We handle all the technical details of purchasing, configuring, and connecting your domain name and servers.</p>
+          </a>
+          <!-- 7. Website Speed Optimization -->
+          <a href="service-speed.html" class="card" style="text-decoration:none; color:inherit; display:block;">
+            <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+            <h3>Speed Optimization</h3>
+            <p>Lightning-fast load times to improve user experience, reduce bounce rates, and boost your search engine rankings.</p>
+          </a>
+          <!-- 8. WhatsApp & Social Media Integration -->
+          <a href="service-social.html" class="card" style="text-decoration:none; color:inherit; display:block;">
+            <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+            <h3>Social Media Integration</h3>
+            <p>Connect your site directly to WhatsApp, Instagram, and Facebook to turn website visitors into real conversations.</p>
+          </a>
+          <!-- 9. Website Security -->
+          <a href="service-security.html" class="card" style="text-decoration:none; color:inherit; display:block;">
+            <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <h3>Website Security</h3>
+            <p>Protect your business and customer data with robust SSL certificates, firewall configuration, and malware scanning.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave Divider (Flipped) -->
+    <svg class="wave-divider flip" viewBox="0 0 1440 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0H1440V74C1320 28.5 1102 3 874 3C646 3 538 48.5 284 48.5C136 48.5 48 31 0 17V0Z" fill="currentColor"/>
+    </svg>
+
+    <!-- PROCESS -->
+    <section>
+      <div class="container">
+        <div class="sec-head reveal">
+          <span class="eyebrow">How We Work</span>
+          <h2>Our&nbsp;Simple&nbsp;&amp;&nbsp;Proven&nbsp;Process</h2>
+        </div>
+        <div class="steps reveal-group reveal" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+          <div class="step">
+            <div class="n" aria-hidden="true">1</div>
+            <h3>Requirement Discussion</h3>
+            <p>We listen to your needs and goals.</p>
+          </div>
+          <div class="step">
+            <div class="n" aria-hidden="true">2</div>
+            <h3>UI/UX Design</h3>
+            <p>We create beautiful, intuitive concepts.</p>
+          </div>
+          <div class="step">
+            <div class="n" aria-hidden="true">3</div>
+            <h3>Development</h3>
+            <p>We build with modern, fast tech.</p>
+          </div>
+          <div class="step">
+            <div class="n" aria-hidden="true">4</div>
+            <h3>Testing</h3>
+            <p>We ensure everything works flawlessly.</p>
+          </div>
+          <div class="step">
+            <div class="n" aria-hidden="true">5</div>
+            <h3>Launch</h3>
+            <p>We deploy your site to the world.</p>
+          </div>
+          <div class="step">
+            <div class="n" aria-hidden="true">6</div>
+            <h3>Support & Maintenance</h3>
+            <p>We stand by to help you grow.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave Divider removed since Categories block is removed. -->
+
+    <!-- STATS -->
+    <section class="stats" style="padding: 54px 0;">
+      <div class="container reveal from-scale">
+        <div class="stat"><div class="num" data-count="120" data-suffix="+">0</div><div class="lbl">Projects Delivered</div></div>
+        <div class="stat"><div class="num" data-count="6" data-suffix="+">0</div><div class="lbl">Industries Served</div></div>
+        <div class="stat"><div class="num" data-count="98" data-suffix="%">0</div><div class="lbl">Client Satisfaction</div></div>
+        <div class="stat"><div class="num" data-count="24" data-suffix="/7">0</div><div class="lbl">Support &amp; Care</div></div>
+      </div>
+    </section>
+
+    <!-- Wave Divider -->
+    <svg class="wave-divider" viewBox="0 0 1440 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0H1440V74C1320 28.5 1102 3 874 3C646 3 538 48.5 284 48.5C136 48.5 48 31 0 17V0Z" fill="currentColor"/>
+    </svg>
+
+    <!-- FEATURED WORK -->
+        <section id="portfolio" class="bg-soft" style="padding-top: 50px;">
+      <div class="container">
+        <div class="sec-head reveal text-center">
+          <span class="eyebrow">Our Work</span>
+          <h2>Featured&nbsp;Projects</h2>
+          <p>Take a look at some of our recent digital solutions built to drive business results.</p>
+        </div>
+        
+        <!-- Category Filter -->
+
+      <div class="filter-container reveal text-center" >
+        <button class="filter-btn active" data-filter="all" >All</button>
+        <button class="filter-btn" data-filter="salon" >Salon</button>
+        <button class="filter-btn" data-filter="cafe" >Cafe/Restaurant</button>
+        <button class="filter-btn" data-filter="hospital" >Hospital</button>
+      </div>
+      <div class="portfolio-grid reveal-group reveal" id="home-portfolio-grid">
+        <div class="portfolio-card filter-item cafe" style="background: transparent; border: none; box-shadow: none; padding: 0;">
+          <div class="macbook-wrapper">
+            <div class="macbook-bezel">
+              <div class="macbook-screen">
+                <a href="https://cafe-aura-website.vercel.app" target="_blank" style="display: block; height: 100%; width: 100%;"><img src="https://mrunali-hatzade.vercel.app/cafe-aura-thumb.png" alt="Café Aura"></a>
+              </div>
+            </div>
+            <div class="macbook-base"></div>
+          </div>
+          <h3 style="font-size: 1.6rem; margin-top: 30px; margin-bottom: 0; color: var(--text-primary); text-align: center; font-family: var(--font-heading); font-weight: 800;">Café Aura</h3>
+        </div>
+        <div class="portfolio-card filter-item salon" style="background: transparent; border: none; box-shadow: none; padding: 0;">
+          <div class="macbook-wrapper">
+            <div class="macbook-bezel">
+              <div class="macbook-screen">
+                <a href="https://glamandglow-eight.vercel.app/" target="_blank" style="display: block; height: 100%; width: 100%;"><img src="https://mrunali-hatzade.vercel.app/glam-glow-salon-thumb.png" alt="Glam & Glow Salon"></a>
+              </div>
+            </div>
+            <div class="macbook-base"></div>
+          </div>
+          <h3 style="font-size: 1.6rem; margin-top: 30px; margin-bottom: 0; color: var(--text-primary); text-align: center; font-family: var(--font-heading); font-weight: 800;">Glam & Glow Salon</h3>
+        </div>
+        <div class="portfolio-card filter-item hospital" style="background: transparent; border: none; box-shadow: none; padding: 0;">
+          <div class="macbook-wrapper">
+            <div class="macbook-bezel">
+              <div class="macbook-screen">
+                <a href="https://hospital-seven-orpin.vercel.app/" target="_blank" style="display: block; height: 100%; width: 100%;"><img src="https://mrunali-hatzade.vercel.app/lifeline-hospital-thumb.png" alt="Nakade Hospital"></a>
+              </div>
+            </div>
+            <div class="macbook-base"></div>
+          </div>
+          <h3 style="font-size: 1.6rem; margin-top: 30px; margin-bottom: 0; color: var(--text-primary); text-align: center; font-family: var(--font-heading); font-weight: 800;">Nakade Hospital</h3>
+        </div>
+        </div>
+        <div class="text-center reveal" style="margin-top:48px">
+          <a href="portfolio.html" class="btn btn-ghost">View All Work</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave Divider (Flipped) -->
+    <svg class="wave-divider flip" viewBox="0 0 1440 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0H1440V74C1320 28.5 1102 3 874 3C646 3 538 48.5 284 48.5C136 48.5 48 31 0 17V0Z" fill="currentColor"/>
+    </svg>
+
+    <!-- WHY CHOOSE US (Icons) -->
+    <section class="text-center" style="padding-top: 60px;">
+      <div class="container">
+        <div class="sec-head reveal text-center" style="margin-bottom: 40px;">
+          <span class="eyebrow">Why Us? </span>
+          <h2>Why&nbsp;Choose&nbsp;Us ?</h2>
+        </div>
+        <div class="reveal-group reveal" style="margin-top: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 32px;">
+          <!-- 1. Cost Effective -->
+          <div class="icon-feature">
+            <svg style="width: 40px; height: 40px; margin: 0 auto 16px; color: var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/><path d="M8 8h8M8 12h8M10 8v8"/><path d="M14 16c-2 0-3-1-3-2v-2c0-1 1-2 3-2"/>
+            </svg>
+            <p style="font-weight: 500; font-size: 0.95rem; line-height: 1.4; color: var(--navy);">Cost Effective<br>plans</p>
+          </div>
+          <!-- 2. Fast Delivery -->
+          <div class="icon-feature">
+            <svg style="width: 40px; height: 40px; margin: 0 auto 16px; color: var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <p style="font-weight: 500; font-size: 0.95rem; line-height: 1.4; color: var(--navy);">Fast delivery<br>within weeks</p>
+          </div>
+          <!-- 3. No coding -> Custom-Coded Solutions -->
+          <div class="icon-feature">
+            <svg style="width: 40px; height: 40px; margin: 0 auto 16px; color: var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+            </svg>
+            <p style="font-weight: 500; font-size: 0.95rem; line-height: 1.4; color: var(--navy);">Custom-Coded<br>Solutions</p>
+          </div>
+          <!-- 4. No Server cost -> Fully Managed Hosting -->
+          <div class="icon-feature">
+            <svg style="width: 40px; height: 40px; margin: 0 auto 16px; color: var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>
+            </svg>
+            <p style="font-weight: 500; font-size: 0.95rem; line-height: 1.4; color: var(--navy);">Fully Managed<br>Hosting</p>
+          </div>
+          <!-- 5. Secure -->
+          <div class="icon-feature">
+            <svg style="width: 40px; height: 40px; margin: 0 auto 16px; color: var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>
+            </svg>
+            <p style="font-weight: 500; font-size: 0.95rem; line-height: 1.4; color: var(--navy);">Secure online<br>platform</p>
+          </div>
+          <!-- 6. Mobile & Desktop -> Responsive Design -->
+          <div class="icon-feature">
+            <svg style="width: 40px; height: 40px; margin: 0 auto 16px; color: var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+            <p style="font-weight: 500; font-size: 0.95rem; line-height: 1.4; color: var(--navy);">Responsive Design<br>for all devices</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave Divider (Flipped) -->
+    <svg class="wave-divider flip" viewBox="0 0 1440 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0H1440V74C1320 28.5 1102 3 874 3C646 3 538 48.5 284 48.5C136 48.5 48 31 0 17V0Z" fill="currentColor"/>
+    </svg>
+
+    <!-- ABOUT -->
+        <section id="about" class="bg-soft">
+      <div class="container split">
+        <img class="reveal from-left" src="assets/about.png" alt="Simplified Works team">
+        <div class="reveal from-right">
+          <span class="eyebrow">Who We Are</span>
+          <h2>Empowering Businesses in the Digital Era</h2>
+          <p class="lead" style="margin-top:14px">Our main goal is to take small scale businesses to the online platform. In this digital era, every business must have a website. We help your business grow online, establish strong branding, and reach more people than ever before.</p>
+          <ul class="feature-list">
+            <li><span class="tick" aria-hidden="true">✓</span> Digital Growth Strategies</li>
+            <li><span class="tick" aria-hidden="true">✓</span> Professional Branding</li>
+            <li><span class="tick" aria-hidden="true">✓</span> Scalable Web Solutions</li>
+            <li><span class="tick" aria-hidden="true">✓</span> Engaging UI/UX Design</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave Divider (Flipped) -->
+    <svg class="wave-divider flip" viewBox="0 0 1440 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0H1440V74C1320 28.5 1102 3 874 3C646 3 538 48.5 284 48.5C136 48.5 48 31 0 17V0Z" fill="currentColor"/>
+    </svg>
+
+
+
+    <!-- CONTACT -->
+        <section id="contact" class="bg-soft">
+      <div class="container split" style="align-items: flex-start;">
+        <div class="reveal from-left">
+          <span class="eyebrow">Get in Touch</span>
+          <h2>Let's build something amazing together.</h2>
+          <p style="margin-bottom: 30px;">Ready to start your project or need a consultation? Fill out the form, and our team will get back to you promptly.</p>
+          
+          <div style="background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid var(--card-border); margin-top: 40px;">
+            <h3>Provide Feedback</h3>
+            <p style="margin-bottom: 20px; font-size: 0.95rem;">Already working with us? We'd love to hear about your experience.</p>
+            <form action="#" method="POST">
+              <div class="field">
+                <label>Your Name</label>
+                <input type="text" placeholder="John Doe" required>
+              </div>
+              <div class="field">
+                <label>Your Feedback</label>
+                <textarea placeholder="Tell us about your experience..." rows="3" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit Feedback</button>
+            </form>
+          </div>
+        </div>
+        <form action="#" method="POST" class="contact-form reveal from-right" style="background: var(--bg); padding: 40px; border-radius: 16px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+          <h3 style="margin-bottom: 24px; font-size: 1.8rem;">Contact Us</h3>
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="John Doe" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="john@example.com" required>
+          </div>
+          <div class="field">
+            <label for="service">Service Needed</label>
+            <select id="service" required>
+              <option value="">Select a service...</option>
+              <option value="web">Website Development</option>
+              <option value="brand">Digital Branding</option>
+              <option value="custom">Custom Web Solutions</option>
+              <option value="hosting">Fully Managed Hosting</option>
+              <option value="seo">SEO & Marketing</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+        </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Wave Divider -->
+    <svg class="wave-divider" viewBox="0 0 1440 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0H1440V74C1320 28.5 1102 3 874 3C646 3 538 48.5 284 48.5C136 48.5 48 31 0 17V0Z" fill="currentColor"/>
+    </svg>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container reveal from-scale">
+        <div class="sec-head text-center" style="margin-bottom: 20px;">
+          <span class="eyebrow" style="color: rgba(255,255,255,0.9);">Start Today</span>
+          <h2 style="color: #fff;">Ready&nbsp;to&nbsp;Build&nbsp;Something&nbsp;Great?</h2>
+        </div>
+        <p>Let's turn your idea into a polished digital presence. Get a free, no-obligation quote today.</p>
+        <a href="contact.html" class="btn btn-gold">Get a Free Quote</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+    <footer style="background: var(--card-bg); padding: 80px 0 40px; border-top: 1px solid var(--card-border);">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 60px;">
+          <div>
+            <a href="index.html" style="display: inline-block; margin-bottom: 20px;">
+              <img src="assets/logo.png" alt="Simplified Works" style="height: 48px;">
+            </a>
+            <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;">Empowering small businesses with premium web development, branding, and digital growth strategies.</p>
+            <div style="display: flex; gap: 15px;">
+              <a href="#" style="color: var(--text-primary);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+              <a href="#" style="color: var(--text-primary);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+              <a href="#" style="color: var(--text-primary);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            </div>
+          </div>
+          <div>
+            <h4 style="color: var(--gold); margin-bottom: 20px; font-size: 1.2rem;">Quick Links</h4>
+            <ul style="list-style: none; padding: 0;">
+              <li style="margin-bottom: 12px;"><a href="index.html#hero" style="color: var(--text-muted); text-decoration: none;">Home</a></li>
+              <li style="margin-bottom: 12px;"><a href="index.html#about" style="color: var(--text-muted); text-decoration: none;">About Us</a></li>
+              <li style="margin-bottom: 12px;"><a href="index.html#portfolio" style="color: var(--text-muted); text-decoration: none;">Portfolio</a></li>
+              <li style="margin-bottom: 12px;"><a href="pricing.html" style="color: var(--text-muted); text-decoration: none;">Pricing</a></li>
+              <li style="margin-bottom: 12px;"><a href="faqs.html" style="color: var(--text-muted); text-decoration: none;">FAQs</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color: var(--gold); margin-bottom: 20px; font-size: 1.2rem;">Services</h4>
+            <ul style="list-style: none; padding: 0;">
+              <li style="margin-bottom: 12px;"><a href="service-websites.html" style="color: var(--text-muted); text-decoration: none;">Website Development</a></li>
+              <li style="margin-bottom: 12px;"><a href="service-branding.html" style="color: var(--text-muted); text-decoration: none;">Digital Branding</a></li>
+              <li style="margin-bottom: 12px;"><a href="service-seo.html" style="color: var(--text-muted); text-decoration: none;">SEO & Marketing</a></li>
+              <li style="margin-bottom: 12px;"><a href="service-hosting.html" style="color: var(--text-muted); text-decoration: none;">Managed Hosting</a></li>
+              <li style="margin-bottom: 12px;"><a href="service-security.html" style="color: var(--text-muted); text-decoration: none;">Website Security</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color: var(--gold); margin-bottom: 20px; font-size: 1.2rem;">Newsletter</h4>
+            <p style="color: var(--text-muted); margin-bottom: 15px; font-size: 0.95rem;">Subscribe to get the latest digital growth strategies.</p>
+            <form style="display: flex; gap: 10px;">
+              <input name="email" type="email" placeholder="Your email address" required style="flex: 1; padding: 10px 15px; border-radius: 6px; border: 1px solid var(--card-border); background: var(--bg); color: var(--text-primary);">
+              <button type="submit" class="btn btn-primary" style="padding: 10px 20px; flex-shrink: 0; border-radius: 6px;">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div style="border-top: 1px solid var(--card-border); padding-top: 30px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+          <p style="color: var(--text-muted); margin: 0;">&copy; 2026 Simplified Works. All rights reserved. Made in India. Created by Mrunali Hatzade.</p>
+          <div style="display: flex; gap: 20px;">
+            <a href="#" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">Privacy Policy</a>
+            <a href="#" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" aria-label="Scroll back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+</button>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/919767355347" class="float-wa" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6a8.6 8.6 0 0 1-3.3-2.9c-.7-.9-1.1-1.8-1.1-2.7 0-.9.5-1.4.7-1.6.2-.2.4-.2.6-.2h.4c.1 0 .3 0 .5.4l.7 1.6c.1.1.1.3 0 .4l-.3.5-.3.3c-.1.1-.2.3 0 .5.2.4.7 1.1 1.4 1.7.9.8 1.6 1 1.9 1.1.2.1.4.1.5-.1l.6-.7c.1-.2.3-.1.5-.1l1.5.7c.2.1.4.2.4.3.1.1.1.5-.1 1Z"/>
+  </svg>
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="script.js"></script>
+
+  
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget">
+      <div class="chatbot-window" id="chatbot-window">
+        <div class="chatbot-header">
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> AI Assistant</span>
+          <button class="chatbot-close" id="chatbot-close">&times;</button>
+        </div>
+        <div class="chatbot-body" id="chatbot-body">
+          <div class="chat-msg bot">Hi there! I am the Frontend AI Assistant. Ask me anything about our services, pricing, or process!</div>
+        </div>
+        <form class="chatbot-footer" id="chatbot-form">
+          <input type="text" class="chatbot-input" id="chatbot-input" placeholder="Type a message..." autocomplete="off">
+          <button type="submit" class="chatbot-send">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+        </form>
+      </div>
+      <button class="chatbot-toggle" id="chatbot-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+      </button>
+    </div>
+
+</body>
+</html>
