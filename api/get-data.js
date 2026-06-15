@@ -22,20 +22,33 @@ export default async function handler(req, res) {
     const { type } = req.query;
 
     if (type === 'overview') {
-      const contactsRes = await pool.query("SELECT COUNT(*) FROM Contacts WHERE LeadType = 'Contact Us'");
-      const quotesRes = await pool.query("SELECT COUNT(*) FROM Contacts WHERE LeadType = 'Free Quote'");
-      const subsRes = await pool.query("SELECT COUNT(*) FROM Subscribers");
-      let feedbackCount = 0;
+      let contactsCount = 0, quotesCount = 0, subsCount = 0, feedbackCount = 0;
+      
+      try {
+        const contactsRes = await pool.query("SELECT COUNT(*) FROM Contacts WHERE LeadType = 'Contact Us'");
+        contactsCount = parseInt(contactsRes.rows[0].count);
+      } catch (e) { /* might not exist or missing column */ }
+
+      try {
+        const quotesRes = await pool.query("SELECT COUNT(*) FROM Contacts WHERE LeadType = 'Free Quote'");
+        quotesCount = parseInt(quotesRes.rows[0].count);
+      } catch (e) { }
+
+      try {
+        const subsRes = await pool.query("SELECT COUNT(*) FROM Subscribers");
+        subsCount = parseInt(subsRes.rows[0].count);
+      } catch (e) { }
+
       try {
         const feedRes = await pool.query("SELECT COUNT(*) FROM Feedback");
         feedbackCount = parseInt(feedRes.rows[0].count);
-      } catch (e) { /* table doesn't exist yet */ }
+      } catch (e) { }
 
       return res.status(200).json({
         overview: {
-          contacts: parseInt(contactsRes.rows[0].count),
-          quotes: parseInt(quotesRes.rows[0].count),
-          subscribers: parseInt(subsRes.rows[0].count),
+          contacts: contactsCount,
+          quotes: quotesCount,
+          subscribers: subsCount,
           feedback: feedbackCount
         }
       });
@@ -54,12 +67,17 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Invalid type requested' });
     }
 
-    const result = await pool.query(query);
-    return res.status(200).json({ records: result.rows });
-  } catch (error) {
-    if (error.code === '42P01') { 
-      return res.status(200).json({ records: [] });
+    try {
+      const result = await pool.query(query);
+      return res.status(200).json({ records: result.rows });
+    } catch (e) {
+      if (e.code === '42P01' || e.code === '42703') { 
+        // Table or column doesn't exist yet
+        return res.status(200).json({ records: [] });
+      }
+      throw e; // rethrow other errors
     }
+  } catch (error) {
     return res.status(500).json({ error: error.message });
   }
 }
