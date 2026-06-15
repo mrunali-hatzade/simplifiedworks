@@ -20,12 +20,36 @@ export default async function handler(req, res) {
 
   try {
     const { type } = req.query;
-    let query = '';
 
+    if (type === 'overview') {
+      const contactsRes = await pool.query("SELECT COUNT(*) FROM Contacts WHERE LeadType = 'Contact Us'");
+      const quotesRes = await pool.query("SELECT COUNT(*) FROM Contacts WHERE LeadType = 'Free Quote'");
+      const subsRes = await pool.query("SELECT COUNT(*) FROM Subscribers");
+      let feedbackCount = 0;
+      try {
+        const feedRes = await pool.query("SELECT COUNT(*) FROM Feedback");
+        feedbackCount = parseInt(feedRes.rows[0].count);
+      } catch (e) { /* table doesn't exist yet */ }
+
+      return res.status(200).json({
+        overview: {
+          contacts: parseInt(contactsRes.rows[0].count),
+          quotes: parseInt(quotesRes.rows[0].count),
+          subscribers: parseInt(subsRes.rows[0].count),
+          feedback: feedbackCount
+        }
+      });
+    }
+
+    let query = '';
     if (type === 'contacts') {
-      query = 'SELECT * FROM Contacts ORDER BY CreatedAt DESC';
+      query = "SELECT * FROM Contacts WHERE LeadType = 'Contact Us' ORDER BY CreatedAt DESC";
+    } else if (type === 'quotes') {
+      query = "SELECT * FROM Contacts WHERE LeadType = 'Free Quote' ORDER BY CreatedAt DESC";
     } else if (type === 'subscribers') {
-      query = 'SELECT * FROM Subscribers ORDER BY SubscribedAt DESC';
+      query = "SELECT * FROM Subscribers ORDER BY SubscribedAt DESC";
+    } else if (type === 'feedback') {
+      query = "SELECT * FROM Feedback ORDER BY SubmittedAt DESC";
     } else {
       return res.status(400).json({ error: 'Invalid type requested' });
     }
@@ -33,7 +57,6 @@ export default async function handler(req, res) {
     const result = await pool.query(query);
     return res.status(200).json({ records: result.rows });
   } catch (error) {
-    // If the table doesn't exist yet, return an empty array instead of failing
     if (error.code === '42P01') { 
       return res.status(200).json({ records: [] });
     }

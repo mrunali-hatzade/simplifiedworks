@@ -155,6 +155,7 @@
         <span class="eyebrow">Send a Message</span>
         <h2 style="margin-bottom:24px">Request a Free Quote</h2>
         <form id="contactForm">
+          <input type="hidden" name="lead_type" value="Free Quote">
           <div class="field">
             <label for="name">Full Name</label>
             <input id="name" name="name" type="text" placeholder="Your name" required>
@@ -284,7 +285,7 @@
     <div class="chatbot-window" id="chatbot-window">
       <div class="chatbot-header">
         <div>AI Assistant</div>
-        <button class="chatbot-close" id="chatbot-close">&times;</button>
+        <button class="chatbot-close" id="chatbot-close" onclick="document.getElementById('chatbot-window').classList.remove('active');">&times;</button>
       </div>
       <div class="chatbot-body" id="chatbot-body">
         <div class="chat-msg bot">Hi! I'm the Simplified Works AI Assistant. How can I help you grow your business today?</div>
@@ -296,7 +297,7 @@
         </button>
       </form>
     </div>
-    <div class="chatbot-toggle" id="chatbot-toggle">
+    <div class="chatbot-toggle" id="chatbot-toggle" onclick="document.getElementById('chatbot-window').classList.toggle('active'); setTimeout(() => document.getElementById('chatbot-input').focus(), 100);" style="cursor: pointer;">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
     </div>
   </div>

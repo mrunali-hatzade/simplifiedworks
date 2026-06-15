@@ -479,6 +479,51 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Feedback Form (Real Backend)
+  const feedbackForm = document.getElementById('feedbackForm');
+  if (feedbackForm) {
+    feedbackForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const submitBtn = feedbackForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      
+      const formData = new FormData(feedbackForm);
+      const data = Object.fromEntries(formData.entries());
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting Feedback...';
+      
+      try {
+        const response = await fetch('/api/feedback', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          feedbackForm.innerHTML = `
+            <div style="text-align: center; padding: 20px;">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" style="margin-bottom: 10px;">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <h4 style="color: var(--teal);">Thank You!</h4>
+              <p style="font-size: 0.9rem;">Your feedback helps us improve.</p>
+            </div>
+          `;
+        } else {
+          alert('Error submitting feedback. Please try again.');
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
+      } catch (error) {
+        alert('Network error. Failed to submit feedback.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    });
+  }
+
   //  Newsletter Form (Real Backend)
   const newsletterForms = document.querySelectorAll('.newsletter-form');
   newsletterForms.forEach(nForm => {

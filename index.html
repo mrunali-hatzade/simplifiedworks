@@ -438,21 +438,22 @@
           <div style="background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid var(--card-border); margin-top: 40px;">
             <h3>Provide Feedback</h3>
             <p style="margin-bottom: 20px; font-size: 0.95rem;">Already working with us? We'd love to hear about your experience.</p>
-            <form onsubmit="event.preventDefault(); alert('Thank you for your feedback! This feature is coming soon.');">
+            <form id="feedbackForm">
               <div class="field">
                 <label>Your Name</label>
-                <input type="text" placeholder="John Doe" required>
+                <input type="text" name="name" placeholder="John Doe" required>
               </div>
               <div class="field">
                 <label>Your Feedback</label>
-                <textarea placeholder="Tell us about your experience..." rows="3" required></textarea>
+                <textarea name="feedback" placeholder="Tell us about your experience..." rows="3" required></textarea>
               </div>
-              <button type="submit" class="btn btn-primary">Submit Feedback</button>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Feedback</button>
             </form>
           </div>
         </div>
         <form id="contactForm" action="#" method="POST" class="contact-form reveal from-right" style="background: var(--bg); padding: 40px; border-radius: 16px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
           <h3 style="margin-bottom: 24px; font-size: 1.8rem;">Contact Us</h3>
+          <input type="hidden" name="lead_type" value="Contact Us">
           <div class="field">
             <label for="name">Name</label>
             <input type="text" id="name" placeholder="John Doe" required>
@@ -583,7 +584,7 @@
       <div class="chatbot-window" id="chatbot-window">
         <div class="chatbot-header">
           <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> AI Assistant</span>
-          <button class="chatbot-close" id="chatbot-close">&times;</button>
+          <button class="chatbot-close" id="chatbot-close" onclick="document.getElementById('chatbot-window').classList.remove('active');">&times;</button>
         </div>
         <div class="chatbot-body" id="chatbot-body">
           <div class="chat-msg bot">Hi there! I am the Frontend AI Assistant. Ask me anything about our services, pricing, or process!</div>
@@ -595,7 +596,7 @@
           </button>
         </form>
       </div>
-      <button class="chatbot-toggle" id="chatbot-toggle">
+      <button class="chatbot-toggle" id="chatbot-toggle" onclick="document.getElementById('chatbot-window').classList.toggle('active'); setTimeout(() => document.getElementById('chatbot-input').focus(), 100);">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
       </button>
     </div>
